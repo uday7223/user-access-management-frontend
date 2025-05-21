@@ -93,3 +93,6 @@ Approve or reject requests from a responsive table.
 3. Install dependencies:  
    ```bash
    npm install
+
+## 🧑‍🔬 Author
+Made with ❤️ by UDAYKUMAR N

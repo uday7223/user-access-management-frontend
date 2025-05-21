@@ -35,48 +35,60 @@ const RequestAccess = () => {
   };
 
   if (auth.role !== "Employee") {
-    return <h2>Unauthorized - Only Employees can access this page.</h2>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-red-500 to-orange-500 text-white">
+        <h2 className="text-xl font-semibold">⛔ Access Denied: Employees only</h2>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h2>Request Software Access</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Select Software:</label>
-        <select
-          value={softwareId}
-          onChange={(e) => setSoftwareId(e.target.value)}
-          required
-        >
-          <option value="">--Select--</option>
-          {softwareList.map((sw) => (
-            <option key={sw.id} value={sw.id}>
-              {sw.name}
-            </option>
-          ))}
-        </select><br />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-emerald-500 to-teal-700 px-4">
+      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 w-full max-w-lg shadow-xl text-white">
+        <h2 className="text-3xl font-bold text-center mb-6">Request Software Access</h2>
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <select
+            value={softwareId}
+            onChange={(e) => setSoftwareId(e.target.value)}
+            required
+            className="w-full px-4 py-2 rounded-md bg-white/20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+          >
+            <option value="">Select Software</option>
+            {softwareList.map((sw) => (
+              <option key={sw.id} value={sw.id}>
+                {sw.name}
+              </option>
+            ))}
+          </select>
 
-        <label>Access Type:</label>
-        <select
-          value={accessType}
-          onChange={(e) => setAccessType(e.target.value)}
-          required
-        >
-          <option value="">--Select--</option>
-          <option value="Read">Read</option>
-          <option value="Write">Write</option>
-          <option value="Admin">Admin</option>
-        </select><br />
+          <select
+            value={accessType}
+            onChange={(e) => setAccessType(e.target.value)}
+            required
+            className="w-full px-4 py-2 rounded-md bg-white/20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+          >
+            <option value="">Select Access Type</option>
+            <option value="Read">Read</option>
+            <option value="Write">Write</option>
+            <option value="Admin">Admin</option>
+          </select>
 
-        <textarea
-          placeholder="Reason for access"
-          value={reason}
-          onChange={(e) => setReason(e.target.value)}
-          required
-        /><br />
+          <textarea
+            placeholder="Reason for access"
+            value={reason}
+            onChange={(e) => setReason(e.target.value)}
+            required
+            className="w-full px-4 py-2 h-24 rounded-md bg-white/20 text-white resize-none focus:outline-none focus:ring-2 focus:ring-white/50"
+          />
 
-        <button type="submit">Submit Request</button>
-      </form>
+          <button
+            type="submit"
+            className="w-full bg-white/20 hover:bg-white/40 text-white py-2 rounded-md font-semibold transition backdrop-blur-sm"
+          >
+            Submit Request
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

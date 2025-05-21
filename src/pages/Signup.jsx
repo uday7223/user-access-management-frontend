@@ -22,29 +22,32 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-3xl font-bold underline">Signup</h2>
-      <form onSubmit={handleSignup}>
-        <input
-          type="text"
-          placeholder="Username"
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <br />
-
-        <div className="container mt-4">
-  <button type="submit" className="btn btn-primary">Sign Up</button>
-</div>
-        {/* <button type="submit">Sign Up</button> */}
-      </form>
+    <div className="min-h-screen bg-gradient-to-r from-teal-400 to-indigo-600 flex items-center justify-center px-4">
+      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 w-full max-w-md shadow-2xl text-white">
+        <h2 className="text-3xl font-bold text-center mb-6">Create Account</h2>
+        <form onSubmit={handleSignup} className="space-y-5">
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            className="w-full px-4 py-2 rounded-md bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="w-full px-4 py-2 rounded-md bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+          />
+          <button
+            type="submit"
+            className="w-full bg-white/20 hover:bg-white/40 text-white py-2 rounded-md transition duration-200 ease-in-out font-semibold backdrop-blur-sm"
+          >
+            Sign Up
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

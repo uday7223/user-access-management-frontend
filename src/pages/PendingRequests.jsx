@@ -23,54 +23,67 @@ const PendingRequests = () => {
     try {
       await API.patch(`/requests/${id}`, { status });
       alert(`Request ${status}`);
-      fetchRequests(); // Refresh list
+      fetchRequests(); // Refresh
     } catch (err) {
       alert("Action failed");
     }
   };
 
   if (auth.role !== "Manager") {
-    return <h2>Unauthorized - Only Managers can access this page.</h2>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-500 to-pink-600 text-white">
+        <h2 className="text-xl font-semibold">⛔ Access Denied: Managers only</h2>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h2>Pending Access Requests</h2>
-      {requests.length === 0 ? (
-        <p>No pending requests</p>
-      ) : (
-        <table border="1" cellPadding="8">
-          <thead>
-            <tr>
-              <th>User</th>
-              <th>Software</th>
-              <th>Access Type</th>
-              <th>Reason</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {requests.map((req) => (
-              <tr key={req.id}>
-                <td>{req.user.username}</td>
-                <td>{req.software.name}</td>
-                <td>{req.accessType}</td>
-                <td>{req.reason}</td>
-                <td>{req.status}</td>
-                <td>
-                  <button onClick={() => handleAction(req.id, "Approved")}>
-                    Approve
-                  </button>
-                  <button onClick={() => handleAction(req.id, "Rejected")}>
-                    Reject
-                  </button>
-                </td>
+    <div className="min-h-screen bg-gradient-to-br from-sky-600 to-blue-800 p-4 flex flex-col items-center justify-start text-white">
+      <h2 className="text-3xl font-bold my-6 text-center">Pending Access Requests</h2>
+
+      <div className="w-full max-w-5xl overflow-x-auto bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 shadow-xl">
+        {requests.length === 0 ? (
+          <p className="text-center text-white/80">No pending requests 🎉</p>
+        ) : (
+          <table className="w-full table-auto text-sm sm:text-base">
+            <thead>
+              <tr className="text-left text-white/90 border-b border-white/20">
+                <th className="py-2">User</th>
+                <th>Software</th>
+                <th>Access</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th className="text-center">Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+            </thead>
+            <tbody>
+              {requests.map((req) => (
+                <tr key={req.id} className="border-b border-white/10">
+                  <td className="py-2">{req.user.username}</td>
+                  <td>{req.software.name}</td>
+                  <td>{req.accessType}</td>
+                  <td>{req.reason}</td>
+                  <td>{req.status}</td>
+                  <td className="flex gap-2 justify-center mt-2">
+                    <button
+                      onClick={() => handleAction(req.id, "Approved")}
+                      className="px-3 py-1 bg-green-500 hover:bg-green-600 rounded text-white text-sm transition"
+                    >
+                      Approve
+                    </button>
+                    <button
+                      onClick={() => handleAction(req.id, "Rejected")}
+                      className="px-3 py-1 bg-red-500 hover:bg-red-600 rounded text-white text-sm transition"
+                    >
+                      Reject
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
     </div>
   );
 };

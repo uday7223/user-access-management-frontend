@@ -23,7 +23,7 @@ const Signup = () => {
 
   return (
     <div>
-      <h2>Signup</h2>
+      <h2 className="text-3xl font-bold underline">Signup</h2>
       <form onSubmit={handleSignup}>
         <input
           type="text"
@@ -39,7 +39,11 @@ const Signup = () => {
           required
         />
         <br />
-        <button type="submit">Sign Up</button>
+
+        <div className="container mt-4">
+  <button type="submit" className="btn btn-primary">Sign Up</button>
+</div>
+        {/* <button type="submit">Sign Up</button> */}
       </form>
     </div>
   );

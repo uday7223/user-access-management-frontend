@@ -1,13 +1,95 @@
-# React + Vite
+# 🧭 User Access Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application for managing user authentication, software access requests, and role-based permissions.
 
-Currently, two official plugins are available:
+Built with **Node.js**, **Express**, **React**, **PostgreSQL**, **TypeORM**, and styled with **Tailwind CSS** using a modern glassmorphism UI.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# user-access-management-frontend" 
+✅ User Signup & Login  
+✅ JWT-based Authentication  
+✅ Role-Based Access (Employee, Manager, Admin)  
+✅ Software Creation (Admin Only)  
+✅ Access Request Submission (Employee Only)  
+✅ Access Request Review/Approval (Manager Only)  
+✅ Responsive UI for all devices  
+✅ Secure Passwords with Bcrypt  
+✅ Beautiful Glassmorphism Dashboard UI ✨  
+
+---
+
+## 🧰 Tech Stack
+
+| Layer       | Technology                     |
+|-------------|--------------------------------|
+| Frontend    | React + Vite + Tailwind CSS    |
+| Backend     | Node.js + Express.js           |
+| Database    | PostgreSQL                     |
+| ORM         | TypeORM                        |
+| Auth        | JWT + bcrypt                   |
+| Styling     | Tailwind CSS + Responsive Design |
+
+---
+
+## 🧑‍💻 User Roles
+
+| Role     | Capabilities                                      |
+|----------|---------------------------------------------------|
+| Employee | Request software access                           |
+| Manager  | View/Approve/Reject access requests               |
+| Admin    | Add software, full system access                  |
+
+---
+
+## 🔐 API Endpoints
+
+### Auth
+- `POST /api/auth/signup` — Register (Employee by default)
+- `POST /api/auth/login` — Login & receive JWT
+
+### Software
+- `GET /api/software` — List all software
+- `POST /api/software` — Create software (Admin only)
+
+### Requests
+- `POST /api/requests` — Submit request (Employee)
+- `GET /api/requests` — View pending requests (Manager)
+- `PATCH /api/requests/:id` — Approve/Reject (Manager)
+
+---
+
+## 🖼️ Screenshots
+
+<details>
+<summary>🖥️ Login / Signup</summary>
+Glassy cards with gradient backgrounds.
+</details>
+
+<details>
+<summary>🧑‍💻 Admin View</summary>
+Create software with multi-access levels.
+</details>
+
+<details>
+<summary>📩 Employee View</summary>
+Request software with reason + access type.
+</details>
+
+<details>
+<summary>🧾 Manager View</summary>
+Approve or reject requests from a responsive table.
+</details>
+
+---
+
+## 🛠️ Setup Instructions
+
+### Backend (Node.js + Express)
+
+1. Clone the repo  
+2. Navigate to `/backend` folder  
+3. Install dependencies:  
+   ```bash
+   npm install

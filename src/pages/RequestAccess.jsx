@@ -51,7 +51,7 @@ const RequestAccess = () => {
             value={softwareId}
             onChange={(e) => setSoftwareId(e.target.value)}
             required
-            className="w-full px-4 py-2 rounded-md bg-white/20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="w-full my-2 px-4 py-2 rounded-md bg-white/20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
           >
             <option value="">Select Software</option>
             {softwareList.map((sw) => (
@@ -65,9 +65,9 @@ const RequestAccess = () => {
             value={accessType}
             onChange={(e) => setAccessType(e.target.value)}
             required
-            className="w-full px-4 py-2 rounded-md bg-white/20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="w-full my-2 px-4 py-2 rounded-md bg-white/20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
           >
-            <option value="">Select Access Type</option>
+            <option className="w-full"  value="">Select Access Type</option>
             <option value="Read">Read</option>
             <option value="Write">Write</option>
             <option value="Admin">Admin</option>
@@ -78,12 +78,12 @@ const RequestAccess = () => {
             value={reason}
             onChange={(e) => setReason(e.target.value)}
             required
-            className="w-full px-4 py-2 h-24 rounded-md bg-white/20 text-white resize-none focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="w-full my-2 px-4 py-2 h-24 rounded-md bg-white/20 text-white resize-none focus:outline-none focus:ring-2 focus:ring-white/50"
           />
 
           <button
             type="submit"
-            className="w-full bg-white/20 hover:bg-white/40 text-white py-2 rounded-md font-semibold transition backdrop-blur-sm"
+            className="w-full mt-3 bg-white/20 hover:bg-white/40 text-white py-2 rounded-md font-semibold transition backdrop-blur-sm"
           >
             Submit Request
           </button>

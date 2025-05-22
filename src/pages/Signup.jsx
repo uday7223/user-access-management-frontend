@@ -31,22 +31,22 @@ const Signup = () => {
             placeholder="Username"
             onChange={(e) => setUsername(e.target.value)}
             required
-            className="w-full px-4 py-2 rounded-md bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="w-full my-2 px-4 py-2 rounded-md bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
           />
           <input
             type="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full px-4 py-2 rounded-md bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="w-full my-2 px-4 py-2 rounded-md bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
           />
           <button
             type="submit"
-            className="w-full bg-white/20 hover:bg-white/40 text-white py-2 rounded-md transition duration-200 ease-in-out font-semibold backdrop-blur-sm"
+            className="w-full mt-4 bg-white/20 hover:bg-white/40 text-white py-2 rounded-md transition duration-200 ease-in-out font-semibold backdrop-blur-sm"
           >
             Sign Up
           </button>
-          <p className="text-center mt-2" >already have an account ? <span onClick={() => navigate("/login")} className="cursor-pointer hover:underline">Login</span> </p>
+          <p className="text-center mt-2" >Already have an account ? <span onClick={() => navigate("/login")} className="cursor-pointer hover:underline">Login</span> </p>
 
         </form>
       </div>

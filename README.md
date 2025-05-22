@@ -20,6 +20,15 @@ Built with **Node.js**, **Express**, **React**, **PostgreSQL**, **TypeORM**, and
 
 ---
 
+## 📱 Responsive Design
+Built with mobile-first responsiveness in mind using Tailwind’s utility classes and breakpoints. Fully tested on:
+
+✅📱 Mobile (≤576px)
+
+✅📱 Tablets (768–992px)
+
+✅💻 Laptops & Desktops (≥1200px)
+
 ## 🧰 Tech Stack
 
 | Layer       | Technology                     |

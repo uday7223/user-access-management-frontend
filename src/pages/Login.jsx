@@ -52,6 +52,7 @@ const Login = () => {
           >
             Log In
           </button>
+          <p className="text-center mt-2" >new user ? <span onClick={() => navigate("/signup")} className="cursor-pointer hover:underline">Signup</span> </p>
         </form>
       </div>
     </div>

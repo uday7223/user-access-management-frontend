@@ -43,7 +43,7 @@ const RequestAccess = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-emerald-500 to-teal-700 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-emerald-500 to-teal-700 px-4 request-access-page">
       <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 w-full max-w-lg shadow-xl text-white">
         <h2 className="text-3xl font-bold text-center mb-6">Request Software Access</h2>
         <form onSubmit={handleSubmit} className="space-y-5">

@@ -24,6 +24,7 @@ const CreateSoftware = () => {
     try {
       await API.post("/software", { name, description, accessLevels });
       alert("Software created successfully");
+      console.log("Software created successfully", { name, description, accessLevels });
       setName("");
       setDescription("");
       setAccessLevels([]);

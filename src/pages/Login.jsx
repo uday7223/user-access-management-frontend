@@ -17,7 +17,7 @@ const Login = () => {
         password,
       });
 
-      login(res.data.token, res.data.role);
+      login(res.data.token, res.data.role, username);
 
       if (res.data.role === "Admin") navigate("/create-software");
       else if (res.data.role === "Employee") navigate("/request-access");

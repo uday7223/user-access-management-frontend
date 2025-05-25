@@ -13,40 +13,52 @@ const Navbar = () => {
   };
 
   const renderLinks = () => {
-    switch (auth.role) {
-      case "Admin":
-        return (
-          <Link to="/create-software" className="hover:text-white transition">
+
+  switch (auth.role) {
+    case "Admin":
+      return (
+        <>
+          <span className="text-white">Welcome, Admin 👋 {auth.username.toUpperCase()}</span>
+          
+          <Link to="/create-software" className="text-white hover:text-white transition">
             Create Software
           </Link>
-        );
-      case "Employee":
-        return (
-          <Link to="/request-access" className="hover:text-white transition">
-            Request Access
+        </>
+      );
+    case "Employee":
+      return (
+        <>
+          <span className="text-white">Welcome👋  {auth.username.toUpperCase()}</span>
+          <Link to="/request-access" className="text-white hover:text-white transition">
+            REQUEST ACCESS
           </Link>
-        );
-      case "Manager":
-        return (
-          <Link to="/pending-requests" className="hover:text-white transition">
+        </>
+      );
+    case "Manager":
+      return (
+        <>
+          <span className="text-white">Welcome👋 {auth.username.toUpperCase()}</span>
+          <Link to="/pending-requests" className="text-white hover:text-white transition">
             Pending Requests
           </Link>
-        );
-      default:
-        return null;
-    }
-  };
+        </>
+      );
+    default:
+      return null;
+  }
+};
 
   if (!auth.token) return null;
 
   return (
-    <nav className="bg-white/10 backdrop-blur-md shadow-md border-b border-white/20 text-white px-4 py-3">
+   <div className="navbar-container">
+     <nav className="bg-white/10 backdrop-blur-md bg-black shadow-md border-b border-white/20 text-white px-4 py-3">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <h1 className="text-lg font-bold tracking-wide">Access Manager</h1>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex gap-6 items-center text-sm sm:text-base">
-          {renderLinks()}
+        <div className="hidden md:flex gap-6 items-center ">
+            {renderLinks()}
           <button
             onClick={handleLogout}
             className="px-3 py-1 rounded bg-red-500 hover:bg-red-600 text-white transition"
@@ -98,6 +110,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+   </div>
   );
 };
 

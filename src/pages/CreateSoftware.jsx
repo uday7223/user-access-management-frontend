@@ -52,17 +52,17 @@ const CreateSoftware = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="w-full px-4 py-2 rounded-md bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="w-full my-2 px-4 py-2 rounded-md bg-white/20 placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-white/50"
           />
           <textarea
             placeholder="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
-            className="w-full px-4 py-2 h-28 rounded-md bg-white/20 placeholder-white text-white resize-none focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="w-full my-2 px-4 py-2 h-28 rounded-md bg-white/20 placeholder-white text-white resize-none focus:outline-none focus:ring-2 focus:ring-white/50"
           />
 
-          <div className="flex gap-4 flex-wrap">
+          <div className="flex gap-4 flex-wrap ms-2">
             {["Read", "Write", "Admin"].map((level) => (
               <label key={level} className="flex items-center gap-2">
                 <input
@@ -72,14 +72,14 @@ const CreateSoftware = () => {
                   onChange={handleCheckboxChange}
                   className="accent-white"
                 />
-                <span>{level}</span>
+                <span className="ms-1">{level}</span>
               </label>
             ))}
           </div>
 
           <button
             type="submit"
-            className="w-full bg-white/20 hover:bg-white/40 text-white py-2 rounded-md font-semibold transition backdrop-blur-sm"
+            className="w-full mt-3 bg-white/20 hover:bg-white/40 text-white py-2 rounded-md font-semibold transition backdrop-blur-sm"
           >
             Create Software
           </button>
